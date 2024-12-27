@@ -2,9 +2,10 @@ package ec.com.sofka.exception.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class ErrorDetails {
+public class ErrorDetails implements Serializable {
 
     @JsonProperty("status")
     private int status;

@@ -26,6 +26,7 @@ public class AccountRequestDTO implements Serializable {
     private BigDecimal retainedBalance;
 
     @Schema(description = "Status of account", example = "ACTIVE")
+    @NotNull(message = "status cannot be null")
     @Pattern(regexp = "^(ACTIVE|INACTIVE)$", message = "Incorrect status")
     private String status;
 

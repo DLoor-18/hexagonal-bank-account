@@ -36,6 +36,7 @@ public class TransactionRequestDTO implements Serializable {
     private String details;
 
     @Schema(description = "Status of transaction", example = "ACTIVE")
+    @NotNull(message = "status cannot be null")
     @Pattern(regexp = "^(ACTIVE|INACTIVE)$", message = "Incorrect status")
     private String status;
 

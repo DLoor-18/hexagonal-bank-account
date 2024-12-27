@@ -33,6 +33,7 @@ public class TransactionTypeRequestDTO implements Serializable {
     private Boolean discount;
 
     @Schema(description = "Status of transaction type", example = "ACTIVE")
+    @NotNull(message = "status cannot be null")
     @Pattern(regexp = "^(ACTIVE|INACTIVE)$", message = "Incorrect status")
     private String status;
 

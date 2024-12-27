@@ -39,6 +39,7 @@ public class UserRequestDTO implements Serializable {
     private String password;
 
     @Schema(description = "Status of user", example = "ACTIVE")
+    @NotNull(message = "status cannot be null")
     @Pattern(regexp = "^(ACTIVE|INACTIVE)$", message = "Incorrect status")
     private String status;
 

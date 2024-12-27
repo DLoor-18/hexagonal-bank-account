@@ -1,7 +1,6 @@
 package ec.com.sofka.handler.account;
 
 import ec.com.sofka.Account;
-import ec.com.sofka.User;
 import ec.com.sofka.cases.account.CreateAccountUseCase;
 import ec.com.sofka.cases.user.FindUserByIdUseCase;
 import ec.com.sofka.data.AccountRequestDTO;
