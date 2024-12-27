@@ -42,9 +42,10 @@ public class AccountRouter {
                     path = "/api/accounts",
                     operation = @Operation(
                             tags = {"Accounts"},
-                            operationId = "create",
+                            operationId = "createAccount",
                             summary = "Create a new account",
                             description = "Create a new account from the request data.",
+                            method = "POST",
                             requestBody = @RequestBody(
                                     description = "Details of the required entity.",
                                     required = true,
@@ -81,9 +82,10 @@ public class AccountRouter {
                     path = "/api/accounts",
                     operation = @Operation(
                             tags = {"Accounts"},
-                            operationId = "getAll",
+                            operationId = "getAllAccounts",
                             summary = "Get all accounts",
                             description = "Get all registered accounts.",
+                            method = "GET",
                             responses = {
                                     @ApiResponse(
                                             responseCode = "200",

@@ -34,17 +34,12 @@ public class AccountRequestDTO implements Serializable {
     @NotNull(message = "userId cannot be null")
     private String userId;
 
-    @Schema(description = "Account type of account")
-    @NotNull(message = "typeAccountId cannot be null")
-    private String typeAccountId;
-
-    public AccountRequestDTO(String number, BigDecimal availableBalance, BigDecimal retainedBalance, String status, String userId, String typeAccountId) {
+    public AccountRequestDTO(String number, BigDecimal availableBalance, BigDecimal retainedBalance, String status, String userId) {
         this.number = number;
         this.availableBalance = availableBalance;
         this.retainedBalance = retainedBalance;
         this.status = status;
         this.userId = userId;
-        this.typeAccountId = typeAccountId;
     }
 
     public String getNumber() {
@@ -85,14 +80,6 @@ public class AccountRequestDTO implements Serializable {
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public String getTypeAccountId() {
-        return typeAccountId;
-    }
-
-    public void setTypeAccountId(String typeAccountId) {
-        this.typeAccountId = typeAccountId;
     }
 
 }

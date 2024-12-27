@@ -22,6 +22,7 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 import org.springframework.web.reactive.function.server.*;
 import reactor.core.publisher.Mono;
 
+
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.web.reactive.function.server.RequestPredicates.*;
 
@@ -43,9 +44,10 @@ public class UserRouter {
                     path = "/api/users",
                     operation = @Operation(
                             tags = {"Users"},
-                            operationId = "create",
+                            operationId = "createUser",
                             summary = "Create a new user",
                             description = "Create a new user from the request data.",
+                            method = "POST",
                             requestBody = @RequestBody(
                                     description = "Details of the required entity.",
                                     required = true,
@@ -82,9 +84,10 @@ public class UserRouter {
                     path = "/api/users",
                     operation = @Operation(
                             tags = {"Users"},
-                            operationId = "getAll",
+                            operationId = "getAllUser",
                             summary = "Get all users",
                             description = "Get all registered users.",
+                            method = "GET",
                             responses = {
                                     @ApiResponse(
                                             responseCode = "200",

@@ -43,9 +43,10 @@ public class TransactionRouter {
                     path = "/api/transactions",
                     operation = @Operation(
                             tags = {"Transactions"},
-                            operationId = "create",
+                            operationId = "createTransaction",
                             summary = "Create a new transaction",
                             description = "Create a new transaction from the request data.",
+                            method = "POST",
                             requestBody = @RequestBody(
                                     description = "Details of the required entity.",
                                     required = true,
@@ -82,9 +83,10 @@ public class TransactionRouter {
                     path = "/api/transactions",
                     operation = @Operation(
                             tags = {"Transactions"},
-                            operationId = "getAll",
+                            operationId = "getAllTransactions",
                             summary = "Get all transactions",
                             description = "Get all registered transactions.",
+                            method = "GET",
                             responses = {
                                     @ApiResponse(
                                             responseCode = "200",

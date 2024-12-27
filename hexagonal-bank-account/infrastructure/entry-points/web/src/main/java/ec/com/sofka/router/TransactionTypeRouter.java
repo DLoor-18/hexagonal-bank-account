@@ -41,10 +41,11 @@ public class TransactionTypeRouter {
             @RouterOperation(
                     path = "/api/transaction-types",
                     operation = @Operation(
-                            tags = {"Transaction Types"},
-                            operationId = "create",
+                            tags = {"TransactionTypes"},
+                            operationId = "createTransactionType",
                             summary = "Create a new transaction type",
                             description = "Create a transaction type user from the request data.",
+                            method = "POST",
                             requestBody = @RequestBody(
                                     description = "Details of the required entity.",
                                     required = true,
@@ -80,10 +81,11 @@ public class TransactionTypeRouter {
             @RouterOperation(
                     path = "/api/transaction-types",
                     operation = @Operation(
-                            tags = {"Transaction Types"},
-                            operationId = "getAll",
+                            tags = {"TransactionTypes"},
+                            operationId = "getAllTransactionTypes",
                             summary = "Get all transaction types",
                             description = "Get all registered transaction types.",
+                            method = "GET",
                             responses = {
                                     @ApiResponse(
                                             responseCode = "200",

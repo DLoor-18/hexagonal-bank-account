@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
@@ -44,7 +43,7 @@ public class UserRouterTest {
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(this);
+
         webTestClient = WebTestClient.bindToRouterFunction(userRouter.usersRouters()).build();
 
         userRequest = new UserRequestDTO("Juan", "Zambrano", "1000000000", "user@gmail.com", "User123.", "ACTIVE");
@@ -81,7 +80,7 @@ public class UserRouterTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(invalidRequest)
                 .exchange()
-                .expectStatus().isEqualTo(422) // Código de error para validación fallida
+                .expectStatus().isEqualTo(422)
                 .expectHeader().contentType(MediaType.APPLICATION_JSON)
                 .expectBody()
                 .jsonPath("$.errors").isArray()
@@ -91,8 +90,8 @@ public class UserRouterTest {
 
     @Test
     void shouldGetAllUsersSuccessfully() {
-        UserResponseDTO user1 = new UserResponseDTO("1", "Juan", "Zambrano", "user@gmail.com", "ACTIVE");
-        UserResponseDTO user2 = new UserResponseDTO("2", "Maria", "Perez", "maria@gmail.com", "INACTIVE");
+        UserResponseDTO user1 = new UserResponseDTO("Juan", "Zambrano", "1234567890", "user@gmail.com", "ACTIVE");
+        UserResponseDTO user2 = new UserResponseDTO("Maria", "Perez", "0987654321", "maria@gmail.com", "INACTIVE");
 
         when(getAllUsersHandler.getAllUsers()).thenReturn(Flux.just(user1, user2));
 
@@ -103,9 +102,8 @@ public class UserRouterTest {
                 .expectHeader().contentType(MediaType.APPLICATION_JSON)
                 .expectBody()
                 .jsonPath("$.length()").isEqualTo(2)
-                .jsonPath("$[0].id").isEqualTo("1")
-                .jsonPath("$[1].firstName").isEqualTo("Maria");
+                .jsonPath("$[0].ci").isEqualTo(user1.getCi())
+                .jsonPath("$[1].firstName").isEqualTo(user2.getFirstName());
     }
-
 
 }
